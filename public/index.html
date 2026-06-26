@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ハイアンドローゲーム</title>
+    <style>
+        #log {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .log-entry {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ハイアンドローゲーム</h1>
+    <p id="message">1から100までの数字を当てるゲームです。</p>
+    <label for="input">入力：</label>
+    <input type="number" id="input" min="1" max="100">
+    <button onclick="checkNumber()">送信</button>
+    <div id="log"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
