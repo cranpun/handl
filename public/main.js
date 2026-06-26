@@ -36,9 +36,9 @@ function hintSumUnit(answer) {
 function main() {
     const max = 100;
     const min = 1;
-    const answer = makeAnswer(min, max);
+    let answer = makeAnswer(min, max);
     
-    const hintfuncs = [
+    let hintfuncs = [
         hintOddEven(answer),
         hintSumUnit(answer),
         hintUnit1(answer),
@@ -101,6 +101,29 @@ function main() {
         }
         // 入力欄をクリア
         inputElement.value = '';
+    }
+    
+    // リセット機能
+    window.resetGame = function() {
+        answer = makeAnswer(min, max);
+        // ヒントを再生成
+        hintfuncs = [
+            hintOddEven(answer),
+            hintSumUnit(answer),
+            hintUnit1(answer),
+            `残念！正解は${answer}でした`
+        ];
+        // 試行回数をリセット
+        attempt = 0;
+        // ログをクリア
+        if (logElement) {
+            logElement.innerHTML = '';
+        }
+        // 入力欄をクリア
+        if (inputElement) {
+            inputElement.value = '';
+            inputElement.focus(); // フォーカスを当てる
+        }
     }
     
     // 入力ボタンのクリックイベント

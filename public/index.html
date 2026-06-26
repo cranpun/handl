@@ -4,25 +4,93 @@
     <meta charset="UTF-8">
     <title>ハイアンドローゲーム</title>
     <style>
+        body {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 0, 0.1) 0%, transparent 20%);
+        }
+        .cyber-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #0f0;
+            padding: 20px;
+            box-shadow: 0 0 10px #0f0;
+            background-color: rgba(0, 20, 0, 0.7);
+        }
+        h1 {
+            text-align: center;
+            text-shadow: 0 0 5px #0f0;
+            margin-bottom: 20px;
+        }
+        .game-description {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        input {
+            background-color: #001100;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            width: 100px;
+        }
+        button {
+            background-color: #001100;
+            color: #0f0;
+            border: 1px solid #0f0;
+            padding: 10px 20px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            box-shadow: 0 0 10px #0f0;
+        }
         #log {
             margin-top: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #0f0;
             padding: 10px;
             max-height: 200px;
             overflow-y: auto;
+            background-color: rgba(0, 20, 0, 0.5);
         }
         .log-entry {
             margin: 5px 0;
+            border-left: 2px solid #0f0;
+            padding-left: 10px;
+        }
+        .blink {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-    <h1>ハイアンドローゲーム</h1>
-    <p id="message">1から100までの数字を当てるゲームです。</p>
-    <label for="input">入力：</label>
-    <input type="number" id="input" min="1" max="100">
-    <button onclick="checkNumber()">送信</button>
-    <div id="log"></div>
+    <div class="cyber-container">
+        <h1>ハイアンドローゲーム</h1>
+        <p class="game-description">1から100までの数字を当てるゲームです。ヒントをもとに正解を当ててください。</p>
+        <div class="input-group">
+            <label for="input">入力：</label>
+            <input type="number" id="input" min="1" max="100">
+            <button onclick="checkNumber()">送信</button>
+            <button onclick="resetGame()">リセット</button>
+        </div>
+        <div id="log"></div>
+    </div>
 
     <script src="main.js"></script>
 </body>
