@@ -1,0 +1,17 @@
+{
+  "name": "handl",
+  "version": "1.0.0",
+  "description": "コンソールで動作するハイ＆ローゲーム",
+  "main": "src/main.ts",
+  "scripts": {
+    "run": "npx tsx src/main.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^25.9.3",
+    "tsx": "^4.22.4"
+  }
+}
